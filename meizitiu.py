@@ -69,6 +69,7 @@ def downloader(url,nummber,title):
     '''构造分页的url，定位到下载url，并保存到本地'''
     os.mkdir("%s" % title)  # 新建一个二级目录
     os.chdir('.\\%s' % title)  # 进入到二级目录
+
     try:
 
         for i in nummber:
@@ -86,6 +87,7 @@ def downloader(url,nummber,title):
             error = str(e)+"联接超时,url="+ url
             f.write(error.encode(encoding="utf-8"))  # 记录下错误日志
         print(e)
+
     os.chdir('..')  # 切换回一级目录
 
 
@@ -97,5 +99,7 @@ if __name__ == "__main__":
     except :
         print("文件夹已经存在，将会保存至此文件夹")
     os.chdir(".\\%s" % dir_name)  # 进入一级目录
-    taotu_url('http://www.mzitu.com/xinggan/')
+    # 在这里输入你想要爬的分类url
+    # 如： http://www.mzitu.com/xinggan/
+    taotu_url('http://www.mzitu.com/')
 
